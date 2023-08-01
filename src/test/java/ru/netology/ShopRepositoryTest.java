@@ -3,8 +3,6 @@ package ru.netology;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ShopRepositoryTest {
 
     @Test
@@ -37,7 +35,7 @@ class ShopRepositoryTest {
         repo.add(product2);
         repo.add(product3);
         Assertions.assertThrows(NotFoundException.class,
-        () -> repo.remove(4)
+                () -> repo.remove(4)
         );
     }
 

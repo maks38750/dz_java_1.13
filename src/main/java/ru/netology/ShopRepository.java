@@ -37,27 +37,27 @@ public class ShopRepository {
     public void remove(int removeId) {
 
         Product removeProduct = findById(removeId);
-            if (removeProduct == null) {
-                throw new NotFoundException(removeId);
-            }
-
-            Product[] tmp = new Product[products.length - 1];
-            int copyToIndex = 0;
-            for (Product product : products) {
-                if (product.getId() != removeId) {
-                    tmp[copyToIndex] = product;
-                    copyToIndex++;
-                }
-            }
-            products = tmp;
+        if (removeProduct == null) {
+            throw new NotFoundException(removeId);
         }
 
-        public Product findById ( int id){
-            for (Product product : products) {
-                if (product.getId() == id) {
-                    return product;
-                }
+        Product[] tmp = new Product[products.length - 1];
+        int copyToIndex = 0;
+        for (Product product : products) {
+            if (product.getId() != removeId) {
+                tmp[copyToIndex] = product;
+                copyToIndex++;
             }
-            return null;
         }
+        products = tmp;
     }
+
+    public Product findById(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
+}
